@@ -1,0 +1,30 @@
+{
+    "name": "template2image",
+    "version": "1.0.0",
+    "description": "Basic Html Template To Image",
+    "main": "index.js",
+    "scripts": {},
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/371digital/template2image"
+    },
+    "keywords": [
+        "html-to-image",
+        "371Digital",
+        "template",
+        "image",
+        "html",
+        "js",
+        "nodejs"
+    ],
+    "bugs": {
+        "url": "https://github.com/371digital/template2imaget/issues"
+    },
+    "homepage": "https://github.com/371digital/template2image",
+    "author": "371Digital",
+    "license": "ISC",
+    "dependencies": {
+        "chrome-aws-lambda": "10.1.0",
+        "puppeteer": "17.1.3"
+    }
+}
