@@ -7,9 +7,10 @@ const template2Image = async (template = "", params = {}, elementId) => {
 
         const splitedTemplate = template.split("}}");
         if (!splitedTemplate.length) replacedTemplate = template;
-        
-        splitedTemplate.forEach((templatePart) => {
-            replacedTemplate += replaceParams(`${templatePart}}}`, params);
+
+        splitedTemplate.forEach((templatePart, index) => {
+            const isLastPart = index + 1 === splitedTemplate.length;
+            replacedTemplate += replaceParams(`${templatePart} ${!isLastPart ? "}}" : ""}`, params);
         });
 
         return await takeImage(replacedTemplate, elementId);
