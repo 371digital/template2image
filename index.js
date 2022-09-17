@@ -1,11 +1,16 @@
 const takeImage = require("./methods/takeImage");
+const replaceParams = require("./methods/replaceParams");
 
 const template2Image = async (template = "", params = {}, elementId) => {
     try {
-        let replacedTemplate = template;
+        let replacedTemplate = "";
 
-        const paramsKeys = Object.keys(params);
-        paramsKeys.forEach((key) => replacedTemplate = replacedTemplate.replace(new RegExp(`{{.*?${key}.*?}}`, "gm"), params[key]));
+        const splitedTemplate = template.split("}}");
+        if (!splitedTemplate.length) replacedTemplate = template;
+        
+        splitedTemplate.forEach((templatePart) => {
+            replacedTemplate += replaceParams(`${templatePart}}}`, params);
+        });
 
         return await takeImage(replacedTemplate, elementId);
     } catch (error) {
