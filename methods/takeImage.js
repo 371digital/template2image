@@ -10,9 +10,18 @@ const takeImage = async (html, elementId = "#snapShotElement") => {
     });
     const page = await browser.newPage();
 
-    await page.setContent(html, {
-        waitUntil: 'networkidle0',
-    });
+    if (typeof html === "string") {
+        await page.setContent(html, {
+            waitUntil: 'networkidle0',
+        });
+    };
+    
+    if (html.url) {
+        await page.goto(html.url, {
+            waitUntil: 'networkidle2',
+        });
+    };
+
     await page.setViewport({ width: 1280, height: 720 });
     await page.evaluate(() => document.body.style.background = 'transparent');
     await page.waitForSelector(`#${elementId}`)

@@ -1,6 +1,6 @@
 {
     "name": "template2image",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "Basic Html Template To Image",
     "main": "index.js",
     "scripts": {},
